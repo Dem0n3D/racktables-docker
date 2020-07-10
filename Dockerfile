@@ -3,7 +3,7 @@ FROM alpine:3.10
 # Author with no obligation to maintain
 LABEL author="Paul Tötterman <paul.totterman@iki.fi>"
 
-ARG RACKTABLES_VERSION=0.20.0
+ARG RACKTABLES_VERSION=0.21.4
 
 ENV DBHOST="mariadb" \
     DBNAME="racktables" \
