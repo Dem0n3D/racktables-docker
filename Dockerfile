@@ -26,7 +26,7 @@ RUN apk --no-cache add \
     php7-session \
     php7-snmp \
     && chmod +x /entrypoint.sh \
-    && curl -sSLo /racktables.tar.gz 'https://github.com/RackTables/racktables/archive/RackTables-${RACKTABLES_VERSION}.tar.gz' \
+    && curl -sSLo /racktables.tar.gz "https://github.com/RackTables/racktables/archive/RackTables-${RACKTABLES_VERSION}.tar.gz" \
     && tar -xz -C /opt -f /racktables.tar.gz \
     && mv /opt/racktables-RackTables-${RACKTABLES_VERSION} /opt/racktables \
     && rm -f /racktables.tar.gz \
