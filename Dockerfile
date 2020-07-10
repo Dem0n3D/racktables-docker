@@ -3,6 +3,8 @@ FROM alpine:3.10
 # Author with no obligation to maintain
 LABEL author="Paul Tötterman <paul.totterman@iki.fi>"
 
+ARG RACKTABLES_VERSION=0.21.4
+
 ENV DBHOST="mariadb" \
     DBNAME="racktables" \
     DBUSER="racktables" \
@@ -24,9 +26,9 @@ RUN apk --no-cache add \
     php7-session \
     php7-snmp \
     && chmod +x /entrypoint.sh \
-    && curl -sSLo /racktables.tar.gz 'https://github.com/RackTables/racktables/archive/RackTables-0.21.3.tar.gz' \
+    && curl -sSLo /racktables.tar.gz 'https://github.com/RackTables/racktables/archive/RackTables-${RACKTABLES_VERSION}.tar.gz' \
     && tar -xz -C /opt -f /racktables.tar.gz \
-    && mv /opt/racktables-RackTables-0.21.3 /opt/racktables \
+    && mv /opt/racktables-RackTables-${RACKTABLES_VERSION} /opt/racktables \
     && rm -f /racktables.tar.gz \
     && sed -i \
     -e 's|^listen =.*$|listen = 9000|' \
